@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//www.mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd">
+<!--
+    Copyright 2010 Brainscript Tech
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!--
+    version: $Id$
+-->
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="useGeneratedKeys" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+    </settings>
+
+   <!-- <typeHandlers>
+        <typeHandler handler="org.mybatis.guice.CustomLongTypeHandler" javaType="org.mybatis.guice.CustomType" />
+        <typeHandler handler="org.mybatis.guice.AddressTypeHandler" javaType="org.mybatis.guice.Address" />
+    </typeHandlers>
+
+    <plugins>
+        <plugin interceptor="org.mybatis.guice.CountUpdateInterceptor" />
+    </plugins>-->
+
+    <environments default="production">
+        <environment id="ngapp">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.h2.Driver" />
+					 <property name="url" value="${url}"/>
+					 <property name="username" value="${username}"/>
+					 <property name="password" value="${password}"/>
+
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--<mapper resource="com/dj/ngapp/emp/EmployeeMapper.xml" />-->
+        <mapper resource="com/dj/ngapp/emp/EmployeeMapper.xml" />
+    </mappers>
+
+</configuration>
